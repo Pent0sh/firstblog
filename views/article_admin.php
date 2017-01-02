@@ -14,19 +14,31 @@
                     <div class="form-group">
                         <lable>
                             Заголовок
-                            <input type="text" name="title" class="form-control" value="<?=$article["title"]?>" autofocus required>
+                            <?php if($_GET["action"] == "add"): ?>
+                                <input type="text" name="title" class="form-control" value="" autofocus required>
+                            <?php else: ?>
+                                <input type="text" name="title" class="form-control" value="<?=$article["title"]?>" autofocus required>
+                            <?php endif; ?>
                         </lable>
                     </div>    
                     <div class="form-group">
                         <lable>
                             Дата публикации
-                            <input type="date" name="date" class="form-control" value="<?=$article["date"]?>" required>
+                            <?php if($_GET["action"] == "add"): ?>
+                                <input type="date" name="date" class="form-control" value="" required>
+                            <?php else: ?>
+                                <input type="date" name="date" class="form-control" value="<?=$article["date"]?>" required>
+                            <?php endif; ?>
                         </lable>
                     </div>    
                     <div class="form-group">
                         <lable>
                             Текст статьи
-                            <textarea name="content" class="form-control" required><?=$article["content"]?></textarea>
+                            <?php if($_GET["action"] == "add"): ?>
+                                <textarea name="content" class="form-control" required></textarea>
+                            <?php else: ?>
+                                <textarea name="content" class="form-control" required><?=$article["content"]?></textarea>
+                            <?php endif; ?>
                         </lable>
                     </div>     
                     <input type="submit" value="Сохранить" class="btn">   
